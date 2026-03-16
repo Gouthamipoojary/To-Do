@@ -1,6 +1,6 @@
 import { useReducer, useEffect, useMemo } from "react";
 import { appReducer, initialState } from "./useReducer";
-import type { AppAction, AppState, Filter, SortBy, SortOrder, Theme, Todo, Tag } from "@/types";
+import type { AppState, Filter, SortBy, SortOrder, Theme, Todo, Tag } from "@/types";
 import { filterTodos, sortTodos, computeStats, loadFromStorage, saveToStorage } from "@/utils";
 
 const STORAGE_KEY = "todo-app-state";

@@ -39,7 +39,6 @@ export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
     setNewTagLabel("");
   };
 
-  const selectedPriority = PRIORITIES.find(p => p.value === priority)!;
 
   return (
     <div style={{
@@ -73,18 +72,18 @@ export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
         <button
           onClick={handleSubmit}
           style={{
-            background: "linear-gradient(135deg, var(--primary), #8b5cf6)",
+            background: "linear-gradient(135deg, var(--green), #10b981)",
             border: "none",
             borderRadius: "var(--radius-sm)",
             color: "#fff",
             fontWeight: 800,
             fontSize: 15,
             padding: "12px 22px",
-            boxShadow: "0 4px 15px var(--primary-glow)",
+            boxShadow: "0 4px 15px rgba(38, 222, 129, 0.25)",
             transition: "transform 0.15s, box-shadow 0.15s",
           }}
-          onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 6px 20px var(--primary-glow)"; }}
-          onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 4px 15px var(--primary-glow)"; }}
+          onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(38, 222, 129, 0.35)"; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 4px 15px rgba(38, 222, 129, 0.25)"; }}
         >
           Add ✚
         </button>

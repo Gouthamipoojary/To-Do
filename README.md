@@ -46,6 +46,17 @@ src/
 └── main.tsx
 ```
 
+## 📖 Feature Documentation
+
+For detailed information on the app's features, please refer to the files in the [`docs/features`](./docs/features) directory:
+- [Data Persistence](./docs/features/data-persistence.md)
+- [Organization](./docs/features/organization.md)
+- [Search and Filtering](./docs/features/search-and-filtering.md)
+- [Sorting](./docs/features/sorting.md)
+- [Statistics](./docs/features/statistics.md)
+- [Task Life Cycle](./docs/features/task-life-cycle.md)
+- [Task Metadata](./docs/features/task-metadata.md)
+
 ## ✨ Features
 
 - ✅ Add / edit (double-click) / delete tasks
