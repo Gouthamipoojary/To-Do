@@ -13,7 +13,7 @@ const PRIORITIES: { value: Priority; emoji: string; label: string; color: string
   { value: "high",   emoji: "🔴", label: "High",   color: "#ff5e7e", bg: "#fff0f2" },
 ];
 
-const TAG_COLORS = ["#6c63ff","#ff6b9d","#ff9f43","#26de81","#06b6d4","#8b5cf6","#f43f5e","#10b981"];
+const TAG_COLORS = ["#6c63ff", "#ff6b9d", "#ff9f43", "#26de81", "#06b6d4", "#8b5cf6", "#f43f5e", "#10b981"];
 
 export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
   const [text, setText] = useState("");
@@ -38,7 +38,6 @@ export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
     onAddTag({ label, color: TAG_COLORS[Math.floor(Math.random() * TAG_COLORS.length)] });
     setNewTagLabel("");
   };
-
 
   return (
     <div style={{
@@ -72,7 +71,7 @@ export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
         <button
           onClick={handleSubmit}
           style={{
-            background: "linear-gradient(135deg, var(--green), #10b981)",
+            background: "#10b981", // Changed button color
             border: "none",
             borderRadius: "var(--radius-sm)",
             color: "#fff",
