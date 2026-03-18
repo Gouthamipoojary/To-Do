@@ -16,7 +16,7 @@ const PRIORITIES: { value: Priority; emoji: string; label: string; color: string
 const TAG_COLORS = ["#6c63ff", "#ff6b9d", "#ff9f43", "#26de81", "#06b6d4", "#8b5cf6", "#f43f5e", "#10b981"]; 
 
 export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
-  const [text, setText] = useState(";");
+  const [text, setText] = useState("");
   const [priority, setPriority] = useState<Priority>("medium");
   const [dueDate, setDueDate] = useState("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
