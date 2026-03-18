@@ -146,6 +146,26 @@ export function Toolbar({
             🗑 Clear done
           </button>
         )}
+        
+        {/* Cancel button to clear filters */}
+        <button
+          onClick={() => onFilter("all")}
+          style={{
+            background: "var(--primary-light)",
+            border: "2px solid var(--primary)",
+            borderRadius: "var(--radius-sm)",
+            color: "var(--primary)",
+            fontWeight: 700,
+            fontSize: 13,
+            padding: "8px 14px",
+            marginLeft: "auto",
+            transition: "all 0.15s",
+          }}
+          onMouseEnter={e => { e.currentTarget.style.background = "var(--primary)"; e.currentTarget.style.color = "#fff"; }}
+          onMouseLeave={e => { e.currentTarget.style.background = "var(--primary-light)"; e.currentTarget.style.color = "var(--primary)"; }}
+        >
+          Cancel
+        </button>
       </div>
 
       {/* Tag filters */}
