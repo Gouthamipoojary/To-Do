@@ -38,6 +38,7 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
           onUpdate={onUpdate}
         />
       ))}
+      <button style={{ marginTop: 20 }}>Reset filters</button>
     </div>
   );
 }
