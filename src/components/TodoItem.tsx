@@ -106,6 +106,7 @@ export function TodoItem({ todo, tags, onToggle, onDelete, onUpdate }: TodoItemP
               outline: "none",
               padding: "2px 0",
             }}
+            placeholder="dd-mm-yyyy"
           />
         ) : (
           <span
