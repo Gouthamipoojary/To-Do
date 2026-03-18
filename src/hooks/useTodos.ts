@@ -27,11 +27,10 @@ export function useTodos() {
     const filtered = filterTodos(
       state.todos,
       state.filter,
-      state.searchQuery,
       state.selectedTagId
     );
     return sortTodos(filtered, state.sortBy, state.sortOrder);
-  }, [state.todos, state.filter, state.searchQuery, state.selectedTagId, state.sortBy, state.sortOrder]);
+  }, [state.todos, state.filter, state.selectedTagId, state.sortBy, state.sortOrder]);
 
   const stats = useMemo(() => computeStats(state.todos), [state.todos]);
 
@@ -73,9 +72,7 @@ export function useTodos() {
     dispatch({ type: "SET_SORT", payload: { sortBy, sortOrder } });
   }
 
-  function setSearch(query: string) {
-    dispatch({ type: "SET_SEARCH", payload: query });
-  }
+
 
   function setTheme(theme: Theme) {
     dispatch({ type: "SET_THEME", payload: theme });
@@ -99,7 +96,7 @@ export function useTodos() {
     deleteTag,
     setFilter,
     setSort,
-    setSearch,
+
     setTheme,
     setSelectedTag,
     dispatch,

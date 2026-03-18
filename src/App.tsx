@@ -10,7 +10,7 @@ export default function App() {
     state, visibleTodos, stats,
     addTodo, updateTodo, deleteTodo, toggleTodo,
     clearCompleted, addTag, deleteTag,
-    setFilter, setSort, setSearch, setSelectedTag,
+    setFilter, setSort, setSelectedTag,
   } = useTodos();
 
   return (
@@ -22,13 +22,11 @@ export default function App() {
           filter={state.filter}
           sortBy={state.sortBy}
           sortOrder={state.sortOrder}
-          searchQuery={state.searchQuery}
           selectedTagId={state.selectedTagId}
           tags={state.tags}
           hasCompleted={state.todos.some(t => t.completed)}
           onFilter={setFilter}
           onSort={setSort}
-          onSearch={setSearch}
           onClearCompleted={clearCompleted}
           onTagSelect={setSelectedTag}
           onDeleteTag={deleteTag}

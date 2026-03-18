@@ -48,7 +48,6 @@ export const initialState: AppState = {
   filter: "all",
   sortBy: "createdAt",
   sortOrder: "desc",
-  searchQuery: "",
   theme: "dark",
   selectedTagId: null,
 };
@@ -135,8 +134,7 @@ export function appReducer(state: AppState, action: AppAction): AppState {
         sortOrder: action.payload.sortOrder,
       };
 
-    case "SET_SEARCH":
-      return { ...state, searchQuery: action.payload };
+
 
     case "SET_THEME":
       return { ...state, theme: action.payload };

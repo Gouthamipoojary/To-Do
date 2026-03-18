@@ -4,13 +4,11 @@ interface ToolbarProps {
   filter: Filter;
   sortBy: SortBy;
   sortOrder: SortOrder;
-  searchQuery: string;
   selectedTagId: string | null;
   tags: Tag[];
   hasCompleted: boolean;
   onFilter: (f: Filter) => void;
   onSort: (by: SortBy, order: SortOrder) => void;
-  onSearch: (q: string) => void;
   onClearCompleted: () => void;
   onTagSelect: (id: string | null) => void;
   onDeleteTag: (id: string) => void;
@@ -30,42 +28,13 @@ const SORTS: { value: SortBy; label: string }[] = [
 ];
 
 export function Toolbar({
-  filter, sortBy, sortOrder, searchQuery, selectedTagId, tags, hasCompleted,
-  onFilter, onSort, onSearch, onClearCompleted, onTagSelect, onDeleteTag,
+  filter, sortBy, sortOrder, selectedTagId, tags, hasCompleted,
+  onFilter, onSort, onClearCompleted, onTagSelect, onDeleteTag,
 }: ToolbarProps) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 16 }}>
 
-      {/* Search */}
-      <div style={{
-        background: "var(--surface)",
-        borderRadius: "var(--radius-sm)",
-        boxShadow: "var(--shadow-sm)",
-        display: "flex",
-        alignItems: "center",
-        padding: "0 16px",
-        gap: 10,
-      }}>
-        <span style={{ fontSize: 16 }}>🔍</span>
-        <input
-          value={searchQuery}
-          onChange={e => onSearch(e.target.value)}
-          placeholder="Search your tasks..."
-          style={{
-            flex: 1,
-            border: "none",
-            background: "transparent",
-            color: "var(--text)",
-            fontSize: 15,
-            fontWeight: 600,
-            outline: "none",
-            padding: "12px 0",
-          }}
-        />
-        {searchQuery && (
-          <button onClick={() => onSearch("")} style={{ background: "none", border: "none", color: "var(--text-3)", fontSize: 16, padding: "4px" }}>✕</button>
-        )}
-      </div>
+
 
       {/* Filter tabs */}
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>

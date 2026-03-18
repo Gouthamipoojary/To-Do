@@ -33,7 +33,6 @@ export interface AppState {
   filter: Filter;
   sortBy: SortBy;
   sortOrder: SortOrder;
-  searchQuery: string;
   theme: Theme;
   selectedTagId: string | null;
 }
@@ -51,7 +50,6 @@ export type AppAction =
   | { type: "DELETE_TAG"; payload: { id: string } }
   | { type: "SET_FILTER"; payload: Filter }
   | { type: "SET_SORT"; payload: { sortBy: SortBy; sortOrder: SortOrder } }
-  | { type: "SET_SEARCH"; payload: string }
   | { type: "SET_THEME"; payload: Theme }
   | { type: "SET_SELECTED_TAG"; payload: string | null };
 

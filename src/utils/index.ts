@@ -42,7 +42,6 @@ export function isDueToday(todo: Todo): boolean {
 export function filterTodos(
   todos: Todo[],
   filter: "all" | "active" | "completed",
-  searchQuery: string,
   selectedTagId: string | null,
 ): Todo[] {
   return todos.filter((t) => {
@@ -51,15 +50,9 @@ export function filterTodos(
       (filter === "active" && !t.completed) ||
       (filter === "completed" && t.completed);
 
-    const q = searchQuery.trim().toLowerCase();
-    const matchesSearch =
-      !q ||
-      t.text.toLowerCase().includes(q) ||
-      t.notes.toLowerCase().includes(q);
-
     const matchesTag = !selectedTagId || t.tags.includes(selectedTagId);
 
-    return matchesFilter && matchesSearch && matchesTag;
+    return matchesFilter && matchesTag;
   });
 }
 
