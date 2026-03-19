@@ -1,3 +1,4 @@
+
 import { useState, useRef } from "react";
 import type { Priority, Tag, Todo } from "@/types";
 
@@ -71,7 +72,7 @@ export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
         <button
           onClick={handleSubmit}
           style={{
-            background: "red", // Changed button color to red
+            background: "green", // Changed button color to green
             border: "none",
             borderRadius: "var(--radius-sm)",
             color: "#fff",
@@ -140,7 +141,7 @@ export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
               background: showExtras ? "var(--primary-light)" : "transparent",
               border: `2px solid ${showExtras ? "var(--primary)" : "var(--border)"}`,
               borderRadius: 99,
-              color: showExtras ? "var(--primary)" : "var(--text-3)",
+              color: showExtras ? "var(--primary)" : "var(--text-3",
               fontWeight: 700,
               fontSize: 13,
               padding: "4px 12px",
