@@ -1,4 +1,3 @@
-
 import { useState, useRef } from "react";
 import type { Priority, Tag, Todo } from "@/types";
 
@@ -18,7 +17,7 @@ const TAG_COLORS = ["#6c63ff", "#ff6b9d", "#ff9f43", "#26de81", "#06b6d4", "#8b5
 
 export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
   const [text, setText] = useState("");
-  const [priority, setPriority] = useState<Priority>("medium");
+  const [priority, setPriority] = useState<Priority>("medium);
   const [dueDate, setDueDate] = useState("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [showExtras, setShowExtras] = useState(false);
@@ -72,7 +71,7 @@ export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
         <button
           onClick={handleSubmit}
           style={{
-            background: "green", // Changed button color to green
+            background: "purple", // Changed button color to purple
             border: "none",
             borderRadius: "var(--radius-sm)",
             color: "#fff",
