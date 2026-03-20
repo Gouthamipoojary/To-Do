@@ -71,7 +71,7 @@ export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
         <button
           onClick={handleSubmit}
           style={{
-            background: "green", // Changed button color to green
+            background: "red", // Changed button color to red
             border: "none",
             borderRadius: "var(--radius-sm)",
             color: "#fff",
