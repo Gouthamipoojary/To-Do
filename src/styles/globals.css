@@ -54,3 +54,5 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 button { font-family: var(--font-main); cursor: pointer; }
 input, textarea { font-family: var(--font-main); }
+
+.low-priority { color: #136F40; }

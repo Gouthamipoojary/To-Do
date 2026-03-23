@@ -31,7 +31,7 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
       {todos.map(todo => (
         <TodoItem
           key={todo.id}
-          todo={todo}
+          todo={{ ...todo, priorityColor: todo.priority === 'low' ? '#136F40' : undefined }}
           tags={tags}
           onToggle={onToggle}
           onDelete={onDelete}

@@ -3,7 +3,7 @@ import type { Todo, Tag } from "@/types";
 import { formatDate, isOverdue, isDueToday } from "@/utils";
 
 const PRIORITY_STYLE = {
-  low:    { emoji: "🟢", color: "#26de81", bg: "#e8fff3", label: "Low"    },
+  low:    { emoji: "🟢", color: "#136F40", bg: "#e8fff3", label: "Low"    },
   medium: { emoji: "🟡", color: "#ff9f43", bg: "#fff5ea", label: "Medium" },
   high:   { emoji: "🔴", color: "#ff5e7e", bg: "#fff0f2", label: "High"   },
 };
@@ -70,17 +70,17 @@ export function TodoItem({ todo, tags, onToggle, onDelete, onUpdate }: TodoItemP
           onClick={() => onToggle(todo.id)}
           style={{
             width: 28, height: 28,
-            border: `3px solid ${todo.completed ? "#26de81" : "var(--border)"}`,
+            border: `3px solid ${todo.completed ? "#136F40" : "var(--border)"}`,
             borderRadius: "50%",
-            background: todo.completed ? "#26de81" : "transparent",
+            background: todo.completed ? "#136F40" : "transparent",
             display: "flex", alignItems: "center", justifyContent: "center",
             flexShrink: 0,
             fontSize: 14,
             transition: "all 0.2s",
             animation: todo.completed ? "checkPop 0.3s ease" : "none",
-            boxShadow: todo.completed ? "0 0 0 4px rgba(38,222,129,0.2)" : "none",
+            boxShadow: todo.completed ? "0 0 0 4px rgba(19,111,64,0.2)" : "none",
           }}
-          onMouseEnter={e => { if (!todo.completed) e.currentTarget.style.borderColor = "#26de81"; }}
+          onMouseEnter={e => { if (!todo.completed) e.currentTarget.style.borderColor = "#136F40"; }}
           onMouseLeave={e => { if (!todo.completed) e.currentTarget.style.borderColor = "var(--border)"; }}
         >
           {todo.completed && "✓"}
