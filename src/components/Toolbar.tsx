@@ -31,9 +31,14 @@ export function Toolbar({
   filter, sortBy, sortOrder, selectedTagId, tags, hasCompleted,
   onFilter, onSort, onClearCompleted, onTagSelect, onDeleteTag,
 }: ToolbarProps) {
+  const [searchQuery, setSearchQuery] = React.useState("");
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 16 }}>
-
 
 
       {/* Filter tabs */}
@@ -116,6 +121,21 @@ export function Toolbar({
           </button>
         )}
         
+        {/* Search bar */}
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleSearch}
+          placeholder="Search..."
+          style={{
+            padding: "8px",
+            borderRadius: "var(--radius-sm)",
+            border: "2px solid var(--border)",
+            marginLeft: "auto",
+            flexGrow: 1,
+          }}
+        />
+
         {/* Cancel button to clear filters */}
         <button
           onClick={() => onFilter("all")}
@@ -127,7 +147,7 @@ export function Toolbar({
             fontWeight: 700,
             fontSize: 13,
             padding: "8px 14px",
-            marginLeft: "auto",
+            marginLeft: "8px",
             transition: "all 0.15s",
           }}
           onMouseEnter={e => { e.currentTarget.style.background = "var(--primary)"; e.currentTarget.style.color = "#fff"; }}
