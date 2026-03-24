@@ -27,7 +27,7 @@ src/
 ├── components/
 │   ├── Header.tsx       # Top bar with stats & theme toggle
 │   ├── AddTodo.tsx      # New task form with priority, tags, due date
-│   ├── Toolbar.tsx      # Search, filter, sort, tag filter
+│   ├── Toolbar.tsx      # filter, sort, tag filter
 │   ├── TodoList.tsx     # Renders the list of TodoItems
 │   ├── TodoItem.tsx     # Individual task row (edit, toggle, delete, notes)
 │   └── Footer.tsx       # Keyboard shortcut hints
@@ -51,7 +51,7 @@ src/
 For detailed information on the app's features, please refer to the files in the [`docs/features`](./docs/features) directory:
 - [Data Persistence](./docs/features/data-persistence.md)
 - [Organization](./docs/features/organization.md)
-- [Search and Filtering](./docs/features/search-and-filtering.md)
+- [Filtering](./docs/features/filtering.md)
 - [Sorting](./docs/features/sorting.md)
 - [Statistics](./docs/features/statistics.md)
 - [Task Life Cycle](./docs/features/task-life-cycle.md)
@@ -64,7 +64,6 @@ For detailed information on the app's features, please refer to the files in the
 - 🏷 Custom tags with colour coding
 - 📅 Due dates with overdue highlighting
 - 📝 Per-task notes
-- 🔍 Real-time search
 - 🔃 Sort by date, priority, A–Z, or due date
 - 🌗 Dark / Light theme (persisted)
 - 💾 All data saved to `localStorage`

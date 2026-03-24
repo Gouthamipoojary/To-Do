@@ -15,4 +15,4 @@ Tasks in the application contain rich metadata to help users manage their worklo
 - **Visuals**: Dedicated badges show the formatted date with a representative emoji (⚠️, ⏰, or 📅).
 
 ## 3. Notes
-- **Storage**: Tasks can store additional notes, though currently primarily used for search matching.
+- **Storage**: Tasks can store additional notes
