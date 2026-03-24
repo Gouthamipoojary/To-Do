@@ -1,4 +1,6 @@
 import type { Filter, SortBy, SortOrder, Tag } from "@/types";
+import React from "react";
+
 
 interface ToolbarProps {
   filter: Filter;
@@ -15,27 +17,22 @@ interface ToolbarProps {
 }
 
 const FILTERS: { value: Filter; emoji: string; label: string }[] = [
-  { value: "all",       emoji: "📋", label: "All"       },
-  { value: "active",    emoji: "⚡", label: "To Do"     },
-  { value: "completed", emoji: "✅", label: "Done"      },
+  { value: "all", emoji: "📋", label: "All" },
+  { value: "active", emoji: "⚡", label: "To Do" },
+  { value: "completed", emoji: "✅", label: "Done" },
 ];
 
 const SORTS: { value: SortBy; label: string }[] = [
-  { value: "createdAt",    label: "Newest first" },
-  { value: "priority",     label: "By priority"  },
-  { value: "dueDate",      label: "By due date"  },
-  { value: "alphabetical", label: "A → Z"        },
+  { value: "createdAt", label: "Newest first" },
+  { value: "priority", label: "By priority" },
+  { value: "dueDate", label: "By due date" },
+  { value: "alphabetical", label: "A → Z" },
 ];
 
 export function Toolbar({
   filter, sortBy, sortOrder, selectedTagId, tags, hasCompleted,
   onFilter, onSort, onClearCompleted, onTagSelect, onDeleteTag,
 }: ToolbarProps) {
-  const [searchQuery, setSearchQuery] = React.useState("");
-
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
-  };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 16 }}>
@@ -120,21 +117,6 @@ export function Toolbar({
             🗑 Clear done
           </button>
         )}
-        
-        {/* Search bar */}
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={handleSearch}
-          placeholder="Search..."
-          style={{
-            padding: "8px",
-            borderRadius: "var(--radius-sm)",
-            border: "2px solid var(--border)",
-            marginLeft: "auto",
-            flexGrow: 1,
-          }}
-        />
 
         {/* Cancel button to clear filters */}
         <button
@@ -147,7 +129,7 @@ export function Toolbar({
             fontWeight: 700,
             fontSize: 13,
             padding: "8px 14px",
-            marginLeft: "8px",
+            marginLeft: "auto",
             transition: "all 0.15s",
           }}
           onMouseEnter={e => { e.currentTarget.style.background = "var(--primary)"; e.currentTarget.style.color = "#fff"; }}
