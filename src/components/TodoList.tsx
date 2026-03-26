@@ -13,8 +13,8 @@ interface TodoListProps {
 export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoListProps) {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredTodos = todos.filter(todo => 
-    todo.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredTodos = todos.filter(todo =>
+    todo.text.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   if (filteredTodos.length === 0) {
