@@ -21,7 +21,7 @@ export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
   const [dueDate, setDueDate] = useState("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [showExtras, setShowExtras] = useState(false);
-  const [newTagLabel, setNewTagLabel] = useState("");
+  const [newTagLabel, setNewTagLabel] = useState(""");
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = () => {
@@ -71,7 +71,7 @@ export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
         <button
           onClick={handleSubmit}
           style={{
-            background: "green", // Changed button color to green
+            background: "#F5279F",
             border: "none",
             borderRadius: "var(--radius-sm)",
             color: "#fff",
