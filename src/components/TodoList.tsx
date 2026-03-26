@@ -28,6 +28,14 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+      <div style={{ marginBottom: 20 }}>
+        <label htmlFor="sortDropdown" style={{ marginRight: 10 }}>Sort by:</label>
+        <select id="sortDropdown" style={{ padding: "8px", borderRadius: "var(--radius)", border: "1px solid var(--border)", fontSize: 16 }}>
+          <option value="date">Date</option>
+          <option value="priority">Priority</option>
+          <option value="alphabetical">Alphabetical</option>
+        </select>
+      </div>
       {todos.map(todo => (
         <TodoItem
           key={todo.id}
