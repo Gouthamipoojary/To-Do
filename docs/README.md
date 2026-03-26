@@ -10,7 +10,7 @@ Welcome to the feature documentation for the To-Do Application. This project is 
 
 ### Organization & Productivity
 - [Organization (Tagging)](./features/organization.md): Categorizing tasks with dynamic tags.
-- [Search and Filtering](./features/search-and-filtering.md): Quickly finding and isolating tasks.
+- [Filtering](./features/filtering.md): Quickly finding and isolating tasks.
 - [Sorting](./features/sorting.md): Ordering tasks by different criteria.
 - [Statistics](./features/statistics.md): High-level overview of productivity metrics.
 
