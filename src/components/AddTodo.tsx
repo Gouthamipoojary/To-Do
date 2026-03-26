@@ -8,12 +8,12 @@ interface AddTodoProps {
 }
 
 const PRIORITIES: { value: Priority; emoji: string; label: string; color: string; bg: string }[] = [
-  { value: "low",    emoji: "🟢", label: "Low",    color: "#26de81", bg: "#e8fff3" },
+  { value: "low", emoji: "🟢", label: "Low", color: "#26de81", bg: "#e8fff3" },
   { value: "medium", emoji: "🟡", label: "Medium", color: "#ff9f43", bg: "#fff5ea" },
-  { value: "high",   emoji: "🔴", label: "High",   color: "#ff5e7e", bg: "#fff0f2" },
+  { value: "high", emoji: "🔴", label: "High", color: "#ff5e7e", bg: "#fff0f2" },
 ];
 
-const TAG_COLORS = ["#6c63ff", "#ff6b9d", "#ff9f43", "#26de81", "#06b6d4", "#8b5cf6", "#f43f5e", "#10b981"]; 
+const TAG_COLORS = ["#6c63ff", "#ff6b9d", "#ff9f43", "#26de81", "#06b6d4", "#8b5cf6", "#f43f5e", "#10b981"];
 
 export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
   const [text, setText] = useState("");
@@ -21,7 +21,7 @@ export function AddTodo({ tags, onAdd, onAddTag }: AddTodoProps) {
   const [dueDate, setDueDate] = useState("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [showExtras, setShowExtras] = useState(false);
-  const [newTagLabel, setNewTagLabel] = useState(""");
+  const [newTagLabel, setNewTagLabel] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = () => {
