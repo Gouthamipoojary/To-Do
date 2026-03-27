@@ -17,10 +17,6 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
     todo.text.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const clearFilter = () => {
-    setSearchTerm("");
-  };
-
   if (filteredTodos.length === 0) {
     return (
       <div style={{
@@ -46,9 +42,7 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
         onChange={(e) => setSearchTerm(e.target.value)}
         style={{ marginBottom: 20, padding: 10, borderRadius: "var(--radius)", border: "1px solid var(--border)" }}
       />
-      <button onClick={clearFilter} style={{ marginBottom: 20, padding: 10, borderRadius: "var(--radius)", border: "1px solid var(--border)" }}>
-        Cancel
-      </button>
+
       {filteredTodos.map(todo => (
         <TodoItem
           key={todo.id}
