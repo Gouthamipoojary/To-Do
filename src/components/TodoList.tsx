@@ -17,6 +17,22 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
     todo.text.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const kanbanStages = {
+    Todo: [],
+    InProgress: [],
+    Done: [],
+  };
+
+  filteredTodos.forEach(todo => {
+    if (todo.status === "Todo") {
+      kanbanStages.Todo.push(todo);
+    } else if (todo.status === "In Progress") {
+      kanbanStages.InProgress.push(todo);
+    } else if (todo.status === "Done") {
+      kanbanStages.Done.push(todo);
+    }
+  });
+
   if (filteredTodos.length === 0) {
     return (
       <div style={{
@@ -34,25 +50,46 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <input
-        type="text"
-        placeholder="Search todos..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        style={{ marginBottom: 20, padding: 10, borderRadius: "var(--radius)", border: "1px solid var(--border)" }}
-      />
-
-      {filteredTodos.map(todo => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          tags={tags}
-          onToggle={onToggle}
-          onDelete={onDelete}
-          onUpdate={onUpdate}
-        />
-      ))}
+    <div style={{ display: "flex", gap: 20 }}>
+      <div style={{ flex: 1 }}>
+        <h2>Todo</h2>
+        {kanbanStages.Todo.map(todo => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            tags={tags}
+            onToggle={onToggle}
+            onDelete={onDelete}
+            onUpdate={onUpdate}
+          />
+        ))}
+      </div>
+      <div style={{ flex: 1 }}>
+        <h2>In Progress</h2>
+        {kanbanStages.InProgress.map(todo => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            tags={tags}
+            onToggle={onToggle}
+            onDelete={onDelete}
+            onUpdate={onUpdate}
+          />
+        ))}
+      </div>
+      <div style={{ flex: 1 }}>
+        <h2>Done</h2>
+        {kanbanStages.Done.map(todo => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            tags={tags}
+            onToggle={onToggle}
+            onDelete={onDelete}
+            onUpdate={onUpdate}
+          />
+        ))}
+      </div>
     </div>
   );
 }
