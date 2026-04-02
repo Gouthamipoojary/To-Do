@@ -17,6 +17,7 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
     todo.text.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+
   if (filteredTodos.length === 0) {
     return (
       <div style={{
@@ -33,63 +34,26 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
     );
   }
 
-  const todoColumns = {
-    Todo: [],
-    "In Progress": [],
-    Done: []
-  };
-
-  filteredTodos.forEach(todo => {
-    if (todo.status === "Todo") {
-      todoColumns.Todo.push(todo);
-    } else if (todo.status === "In Progress") {
-      todoColumns["In Progress"].push(todo);
-    } else if (todo.status === "Done") {
-      todoColumns.Done.push(todo);
-    }
-  });
-
   return (
-    <div style={{ display: "flex", gap: 20 }}>
-      <div style={{ flex: 1 }}>
-        <h2>Todo</h2>
-        {todoColumns.Todo.map(todo => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            tags={tags}
-            onToggle={onToggle}
-            onDelete={onDelete}
-            onUpdate={onUpdate}
-          />
-        ))}
-      </div>
-      <div style={{ flex: 1 }}>
-        <h2>In Progress</h2>
-        {todoColumns["In Progress"].map(todo => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            tags={tags}
-            onToggle={onToggle}
-            onDelete={onDelete}
-            onUpdate={onUpdate}
-          />
-        ))}
-      </div>
-      <div style={{ flex: 1 }}>
-        <h2>Done</h2>
-        {todoColumns.Done.map(todo => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            tags={tags}
-            onToggle={onToggle}
-            onDelete={onDelete}
-            onUpdate={onUpdate}
-          />
-        ))}
-      </div>
+    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+      <input
+        type="text"
+        placeholder="Search todos..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={{ marginBottom: 20, padding: 10, borderRadius: "var(--radius)", border: "1px solid var(--border)" }}
+      />
+
+      {filteredTodos.map(todo => (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          tags={tags}
+          onToggle={onToggle}
+          onDelete={onDelete}
+          onUpdate={onUpdate}
+        />
+      ))}
     </div>
   );
 }
