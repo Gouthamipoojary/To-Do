@@ -1,4 +1,5 @@
 import type { Todo, Tag } from "@/types";
+import { TodoItem } from "./TodoItem";
 import { useState } from "react";
 
 interface TodoListProps {
@@ -16,14 +17,6 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
     todo.text.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const groupedTodos = filteredTodos.reduce((acc, todo) => {
-    const status = todo.completed ? "completed" : "active";
-    if (!acc[status]) {
-      acc[status] = [];
-    }
-    acc[status].push(todo);
-    return acc;
-  }, {} as { active: Todo[]; completed: Todo[] });
 
   if (filteredTodos.length === 0) {
     return (
@@ -42,7 +35,7 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
   }
 
   return (
-    <div style={{ display: "flex", gap: 10 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       <input
         type="text"
         placeholder="Search todos..."
@@ -50,38 +43,17 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
         onChange={(e) => setSearchTerm(e.target.value)}
         style={{ marginBottom: 20, padding: 10, borderRadius: "var(--radius)", border: "1px solid var(--border)" }}
       />
-      <div style={{ display: "flex", gap: 20 }}>
-        <div>
-          <h2>Active Tasks</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            {groupedTodos.active && groupedTodos.active.map(todo => (
-              <TodoItem
-                key={todo.id}
-                todo={todo}
-                tags={tags}
-                onToggle={onToggle}
-                onDelete={onDelete}
-                onUpdate={onUpdate}
-              />
-            ))}
-          </div>
-        </div>
-        <div>
-          <h2>Completed Tasks</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            {groupedTodos.completed && groupedTodos.completed.map(todo => (
-              <TodoItem
-                key={todo.id}
-                todo={todo}
-                tags={tags}
-                onToggle={onToggle}
-                onDelete={onDelete}
-                onUpdate={onUpdate}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+
+      {filteredTodos.map(todo => (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          tags={tags}
+          onToggle={onToggle}
+          onDelete={onDelete}
+          onUpdate={onUpdate}
+        />
+      ))}
     </div>
   );
 }
