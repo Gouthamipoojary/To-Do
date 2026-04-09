@@ -17,6 +17,7 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
     todo.text.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+
   if (filteredTodos.length === 0) {
     return (
       <div style={{
@@ -33,43 +34,26 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
     );
   }
 
-  const kanbanColumns = {
-    active: filteredTodos.filter(todo => !todo.completed),
-    completed: filteredTodos.filter(todo => todo.completed),
-  };
-
   return (
-    <div style={{ display: "flex", gap: 20 }}>
-      <div style={{ flex: 1 }}>
-        <h2>Active Tasks</h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-          {kanbanColumns.active.map(todo => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              tags={tags}
-              onToggle={onToggle}
-              onDelete={onDelete}
-              onUpdate={onUpdate}
-            />
-          ))}
-        </div>
-      </div>
-      <div style={{ flex: 1 }}>
-        <h2>Completed Tasks</h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-          {kanbanColumns.completed.map(todo => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              tags={tags}
-              onToggle={onToggle}
-              onDelete={onDelete}
-              onUpdate={onUpdate}
-            />
-          ))}
-        </div>
-      </div>
+    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+      <input
+        type="text"
+        placeholder="Search todos..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={{ marginBottom: 20, padding: 10, borderRadius: "var(--radius)", border: "1px solid var(--border)" }}
+      />
+
+      {filteredTodos.map(todo => (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          tags={tags}
+          onToggle={onToggle}
+          onDelete={onDelete}
+          onUpdate={onUpdate}
+        />
+      ))}
     </div>
   );
 }
