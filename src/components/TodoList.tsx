@@ -17,7 +17,6 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
     todo.text.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-
   if (filteredTodos.length === 0) {
     return (
       <div style={{
@@ -44,16 +43,22 @@ export function TodoList({ todos, tags, onToggle, onDelete, onUpdate }: TodoList
         style={{ marginBottom: 20, padding: 10, borderRadius: "var(--radius)", border: "1px solid var(--border)" }}
       />
 
-      {filteredTodos.map(todo => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          tags={tags}
-          onToggle={onToggle}
-          onDelete={onDelete}
-          onUpdate={onUpdate}
-        />
-      ))}
+      <div style={{ display: "flex", gap: 10 }}>
+        {/* TODO: Create Kanban Board Structure */}
+        <div style={{ flex: 1, display: 'flex', overflowX: 'scroll' }}>
+          {filteredTodos.map(todo => (
+            <div key={todo.id} style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '10px', background: 'var(--surface)', marginBottom: '10px', flex: '0 0 auto' }}>
+              <TodoItem
+                todo={todo}
+                tags={tags}
+                onToggle={onToggle}
+                onDelete={onDelete}
+                onUpdate={onUpdate}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
